@@ -21,19 +21,19 @@ export function LogosStrip() {
 
   return (
     <div
-      className="w-full border-y border-border py-6 px-6 md:px-12 bg-muted/50 overflow-hidden flex flex-col md:flex-row md:items-center gap-6"
+      className="border-border bg-muted/50 flex w-full flex-col gap-6 overflow-hidden border-y px-6 py-6 md:flex-row md:items-center md:px-12"
       aria-label="Trusted by our partners"
     >
-      <span className="text-[10px] font-bold tracking-widest text-muted-foreground uppercase whitespace-nowrap">
+      <span className="text-muted-foreground text-[10px] font-bold tracking-widest whitespace-nowrap uppercase">
         Trusted by industry leaders
       </span>
 
       <div className="relative flex-1 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]">
-        <div className="flex gap-16 w-max animate-scroll">
+        <div className="animate-scroll flex w-max gap-16">
           {displayLogos.map((logo, idx) => (
             <span
               key={`${logo}-${idx}`}
-              className="font-serif italic text-base text-muted-foreground tracking-wide hover:text-foreground transition-colors duration-200"
+              className="text-muted-foreground hover:text-foreground font-serif text-base tracking-wide italic transition-colors duration-200"
             >
               {logo}
             </span>

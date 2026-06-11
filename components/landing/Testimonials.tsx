@@ -52,49 +52,49 @@ export function Testimonials() {
       className="bg-muted/50 py-24 transition-colors duration-300"
       aria-labelledby="testi-heading"
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <div className="max-w-xl mb-16">
-          <div className="inline-flex items-center gap-3 text-xs font-semibold tracking-widest text-muted-foreground uppercase mb-4">
-            <span className="w-6 h-px bg-border" />
+      <div className="mx-auto max-w-7xl px-6 md:px-12">
+        <div className="mb-16 max-w-xl">
+          <div className="text-muted-foreground mb-4 inline-flex items-center gap-3 text-xs font-semibold tracking-widest uppercase">
+            <span className="bg-border h-px w-6" />
             Client Voices
           </div>
           <h2
             id="testi-heading"
-            className="font-serif text-4xl md:text-5xl lg:text-6xl font-normal leading-[1.05] text-foreground mb-4"
+            className="text-foreground mb-4 font-serif text-4xl leading-[1.05] font-normal md:text-5xl lg:text-6xl"
           >
             What our partners <br />
-            <span className="italic font-normal text-muted-foreground">say about us.</span>
+            <span className="text-muted-foreground font-normal italic">say about us.</span>
           </h2>
         </div>
 
         {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-border border border-border rounded-2xl overflow-hidden">
+        <div className="bg-border border-border grid grid-cols-1 gap-px overflow-hidden rounded-2xl border md:grid-cols-2">
           {testimonials.map((testi, idx) => (
             <Card
               key={idx}
-              className="group p-8 md:p-12 bg-card hover:bg-accent/40 transition-all duration-300 flex flex-col justify-between min-h-[300px] rounded-none border-none shadow-none ring-0"
+              className="group bg-card hover:bg-accent/40 flex min-h-[300px] flex-col justify-between rounded-none border-none p-8 shadow-none ring-0 transition-all duration-300 md:p-12"
             >
               <div>
                 <div
-                  className="flex gap-0.5 text-amber-500 text-[10px] tracking-wide mb-6"
+                  className="mb-6 flex gap-0.5 text-[10px] tracking-wide text-amber-500"
                   aria-label="5 stars rating"
                 >
                   {"★".repeat(testi.stars)}
                 </div>
-                <p className="font-serif italic text-lg md:text-xl font-normal text-foreground leading-relaxed mb-8">
+                <p className="text-foreground mb-8 font-serif text-lg leading-relaxed font-normal italic md:text-xl">
                   &ldquo;{testi.quote}&rdquo;
                 </p>
               </div>
 
-              <footer className="flex items-center gap-4 pt-6 border-t border-border">
-                <div className="w-10 h-10 rounded-full bg-muted border border-border flex items-center justify-center font-serif italic text-xs text-muted-foreground flex-shrink-0 group-hover:bg-background transition-colors">
+              <footer className="border-border flex items-center gap-4 border-t pt-6">
+                <div className="bg-muted border-border text-muted-foreground group-hover:bg-background flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border font-serif text-xs italic transition-colors">
                   {testi.initials}
                 </div>
                 <div>
-                  <cite className="not-italic text-sm font-semibold text-foreground block">
+                  <cite className="text-foreground block text-sm font-semibold not-italic">
                     {testi.name}
                   </cite>
-                  <span className="text-[10px] text-muted-foreground block mt-0.5 uppercase tracking-wider font-semibold">
+                  <span className="text-muted-foreground mt-0.5 block text-[10px] font-semibold tracking-wider uppercase">
                     {testi.title}
                   </span>
                 </div>

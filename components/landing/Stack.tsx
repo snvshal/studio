@@ -1,12 +1,62 @@
 "use client"
 
+/* eslint-disable @next/next/no-img-element */
+
 import { Card } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
 
 interface StackCategory {
   title: string
   dotColor: string
   items: string[]
+}
+
+function getSkillIconUrl(tech: string): string | null {
+  const mapping: { [key: string]: string } = {
+    React: "react",
+    "Next.js": "nextjs",
+    Vue: "vue",
+    SvelteKit: "svelte",
+    TypeScript: "ts",
+    Tailwind: "tailwind",
+    Flutter: "flutter",
+    "React Native": "react",
+    Swift: "swift",
+    Kotlin: "kotlin",
+    Expo: "expo",
+    "Node.js": "nodejs",
+    FastAPI: "fastapi",
+    Django: "django",
+    Go: "go",
+    Rust: "rust",
+    tRPC: "trpc",
+    OpenAI: "openai",
+    PostgreSQL: "postgres",
+    MongoDB: "mongodb",
+    Redis: "redis",
+    Supabase: "supabase",
+    AWS: "aws",
+    GCP: "gcp",
+    Vercel: "vercel",
+    Docker: "docker",
+    Kubernetes: "kubernetes",
+    Terraform: "terraform",
+    Tauri: "tauri",
+    Electron: "electron",
+    "GitHub Actions": "githubactions",
+    Jest: "jest",
+    Playwright: "playwright",
+    Sentry: "sentry",
+    LangChain: "langchain",
+    LangGraph: "python",
+    Anthropic: "anthropic",
+    Pinecone: "pinecone",
+    DuckDB: "duckdb",
+    Qt: "qt",
+    WPF: "windows",
+  }
+
+  const slug = mapping[tech] || mapping[tech.toLowerCase()]
+  return slug ? `/icons/${slug}.svg` : null
 }
 
 export function Stack() {
@@ -27,11 +77,6 @@ export function Stack() {
       items: ["Node.js", "FastAPI", "Django", "Go", "Rust", "tRPC"],
     },
     {
-      title: "AI / ML",
-      dotColor: "bg-rose-500",
-      items: ["LangChain", "LangGraph", "OpenAI", "Anthropic", "Pinecone"],
-    },
-    {
       title: "Database",
       dotColor: "bg-teal-500",
       items: ["PostgreSQL", "MongoDB", "Redis", "DuckDB", "Supabase"],
@@ -46,11 +91,6 @@ export function Stack() {
       dotColor: "bg-indigo-500",
       items: ["Tauri", "Electron", "Qt", "WPF"],
     },
-    {
-      title: "DevOps & QA",
-      dotColor: "bg-cyan-500",
-      items: ["GitHub Actions", "Jest", "Playwright", "Sentry"],
-    },
   ]
 
   return (
@@ -59,47 +99,61 @@ export function Stack() {
       className="bg-background py-24 transition-colors duration-300"
       aria-labelledby="stack-heading"
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <div className="max-w-xl mb-16">
-          <div className="inline-flex items-center gap-3 text-xs font-semibold tracking-widest text-muted-foreground uppercase mb-4">
-            <span className="w-6 h-px bg-border" />
+      <div className="mx-auto max-w-7xl px-6 md:px-12">
+        <div className="mb-16 max-w-xl">
+          <div className="text-muted-foreground mb-4 inline-flex items-center gap-3 text-xs font-semibold tracking-widest uppercase">
+            <span className="bg-border h-px w-6" />
             Technology
           </div>
           <h2
             id="stack-heading"
-            className="font-serif text-4xl md:text-5xl lg:text-6xl font-normal leading-[1.05] text-foreground mb-4"
+            className="text-foreground mb-4 font-serif text-4xl leading-[1.05] font-normal md:text-5xl lg:text-6xl"
           >
             Right tool, <br />
-            <span className="italic font-normal text-muted-foreground">right job.</span>
+            <span className="text-muted-foreground font-normal italic">right job.</span>
           </h2>
-          <p className="text-base text-muted-foreground font-light leading-relaxed max-w-lg">
+          <p className="text-muted-foreground max-w-lg text-base leading-relaxed font-light">
             We choose the best stack for your use case, not the trendiest one.
           </p>
         </div>
 
         {/* Stack Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-border border border-border rounded-2xl overflow-hidden">
+        <div className="bg-border border-border grid grid-cols-1 gap-px overflow-hidden rounded-2xl border sm:grid-cols-2 lg:grid-cols-3">
           {categories.map((cat) => (
             <Card
               key={cat.title}
-              className="group p-8 bg-card hover:bg-accent/40 transition-all duration-300 flex flex-col min-h-[240px] border-none shadow-none ring-0 rounded-none"
+              className="group bg-card hover:bg-accent/40 flex min-h-[300px] flex-col rounded-none border-none p-8 shadow-none ring-0 transition-all duration-300"
             >
-              <div className="flex items-center gap-2 mb-6">
-                <span className={`w-1.5 h-1.5 rounded-full ${cat.dotColor}`} />
-                <span className="text-[10px] font-bold tracking-widest text-muted-foreground uppercase">
+              <div className="mb-6 flex items-center gap-2">
+                <span className={`h-1.5 w-1.5 rounded-full ${cat.dotColor}`} />
+                <span className="text-muted-foreground text-[10px] font-bold tracking-widest uppercase">
                   {cat.title}
                 </span>
               </div>
 
-              <div className="flex flex-wrap gap-2 mt-auto">
+              <div className="mt-auto grid grid-cols-3 gap-x-3 gap-y-5">
                 {cat.items.map((item) => (
-                  <Badge
-                    key={item}
-                    variant="outline"
-                    className="text-xs text-foreground/80 border border-border bg-muted px-3 py-1.5 rounded-xl group-hover:bg-background transition-all duration-300 shadow-none ring-0"
-                  >
-                    {item}
-                  </Badge>
+                  <div key={item} className="flex flex-col items-center gap-1.5" title={item}>
+                    <div className="flex h-11 w-11 items-center justify-center overflow-hidden rounded-xl transition-all duration-300 hover:scale-110">
+                      {getSkillIconUrl(item) ? (
+                        <img
+                          src={getSkillIconUrl(item) || ""}
+                          alt={item}
+                          className="h-full w-full object-cover"
+                          loading="lazy"
+                        />
+                      ) : (
+                        <div className="border-border/50 bg-muted/40 flex h-full w-full items-center justify-center rounded-xl border">
+                          <span className="text-muted-foreground text-[10px] font-semibold">
+                            {item.slice(0, 2)}
+                          </span>
+                        </div>
+                      )}
+                    </div>
+                    <span className="text-muted-foreground w-full truncate text-center text-[10px] font-light">
+                      {item}
+                    </span>
+                  </div>
                 ))}
               </div>
             </Card>

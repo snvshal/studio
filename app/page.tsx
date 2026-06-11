@@ -11,11 +11,11 @@ import { Footer } from "@/components/landing/Footer"
 
 export default function Home() {
   return (
-    <div className="dark min-h-screen flex flex-col bg-background text-foreground transition-colors duration-300">
+    <div className="dark bg-background text-foreground flex min-h-screen flex-col transition-colors duration-300">
       {/* Skip to main content link for accessibility */}
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-white focus:text-neutral-900 focus:rounded-lg focus:border focus:border-neutral-200 focus:shadow-sm"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 focus:rounded-lg focus:border focus:border-neutral-200 focus:bg-white focus:px-4 focus:py-2 focus:text-neutral-900 focus:shadow-sm"
       >
         Skip to content
       </a>
@@ -24,7 +24,7 @@ export default function Home() {
       <Navbar />
 
       {/* Main Content Areas */}
-      <main id="main-content" className="flex-1 flex flex-col">
+      <main id="main-content" className="flex flex-1 flex-col">
         {/* Editorial Hero Area */}
         <Hero />
 

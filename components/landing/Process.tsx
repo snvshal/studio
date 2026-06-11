@@ -61,38 +61,38 @@ export function Process() {
       className="bg-muted/50 py-24 transition-colors duration-300"
       aria-labelledby="process-heading"
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <div className="max-w-xl mb-16">
-          <div className="inline-flex items-center gap-3 text-xs font-semibold tracking-widest text-muted-foreground uppercase mb-4">
-            <span className="w-6 h-px bg-border" />
+      <div className="mx-auto max-w-7xl px-6 md:px-12">
+        <div className="mb-16 max-w-xl">
+          <div className="text-muted-foreground mb-4 inline-flex items-center gap-3 text-xs font-semibold tracking-widest uppercase">
+            <span className="bg-border h-px w-6" />
             Process
           </div>
           <h2
             id="process-heading"
-            className="font-serif text-4xl md:text-5xl lg:text-6xl font-normal leading-[1.05] text-foreground mb-4"
+            className="text-foreground mb-4 font-serif text-4xl leading-[1.05] font-normal md:text-5xl lg:text-6xl"
           >
             How we work.
           </h2>
-          <p className="text-base text-muted-foreground font-light leading-relaxed max-w-lg">
+          <p className="text-muted-foreground max-w-lg text-base leading-relaxed font-light">
             Lean, transparent, and predictable. We keep you in the loop at every step.
           </p>
         </div>
 
         {/* Process Steps Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 border border-border rounded-2xl overflow-hidden bg-card">
+        <div className="border-border bg-card grid grid-cols-1 overflow-hidden rounded-2xl border md:grid-cols-3 lg:grid-cols-5">
           {steps.map((step) => (
             <Card
               key={step.num}
-              className="group relative p-8 bg-transparent hover:bg-accent/40 transition-all duration-300 flex flex-col justify-between min-h-[280px] rounded-none border-none shadow-none ring-0 border-b md:border-b-0 md:border-r border-border last:border-b-0 last:border-r-0"
+              className="group hover:bg-accent/40 border-border relative flex min-h-[280px] flex-col justify-between rounded-none border-b border-none bg-transparent p-8 shadow-none ring-0 transition-all duration-300 last:border-r-0 last:border-b-0 md:border-r md:border-b-0"
             >
               <div>
-                <span className="font-serif italic text-4xl lg:text-5xl font-normal text-muted-foreground/20 tracking-tight block mb-8 transition-colors duration-300 group-hover:text-muted-foreground/45">
+                <span className="text-muted-foreground/20 group-hover:text-muted-foreground/45 mb-8 block font-serif text-4xl font-normal tracking-tight italic transition-colors duration-300 lg:text-5xl">
                   {step.num}
                 </span>
-                <h3 className="text-base font-semibold text-foreground mb-3 tracking-tight">
+                <h3 className="text-foreground mb-3 text-base font-semibold tracking-tight">
                   {step.title}
                 </h3>
-                <p className="text-xs text-muted-foreground font-light leading-relaxed mb-6">
+                <p className="text-muted-foreground mb-6 text-xs leading-relaxed font-light">
                   {step.description}
                 </p>
               </div>
@@ -100,7 +100,7 @@ export function Process() {
               <div>
                 <Badge
                   variant="secondary"
-                  className={`inline-block text-[9px] font-bold tracking-widest uppercase border px-2.5 py-1 rounded-full shadow-none ring-0 ${step.colorClass}`}
+                  className={`inline-block rounded-full border px-2.5 py-1 text-[9px] font-bold tracking-widest uppercase shadow-none ring-0 ${step.colorClass}`}
                 >
                   {step.duration}
                 </Badge>

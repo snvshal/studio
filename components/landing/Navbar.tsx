@@ -16,24 +16,24 @@ export function Navbar({ onContactClick }: NavbarProps) {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 h-16 bg-background/90 backdrop-blur-md border-b border-border transition-colors duration-300">
+      <header className="bg-background/90 border-border fixed top-0 right-0 left-0 z-50 flex h-16 items-center justify-between border-b px-6 backdrop-blur-md transition-colors duration-300 md:px-12">
         <div className="flex items-center gap-10">
-          <a href="#" className="font-serif text-xl font-medium tracking-tight text-foreground">
-            Codeware <span className="italic font-normal text-muted-foreground">Studio</span>
+          <a href="#" className="text-foreground font-serif text-xl font-medium tracking-tight">
+            Codeware <span className="text-muted-foreground font-normal italic">Studio</span>
           </a>
 
           {/* Desktop navigation next to title */}
-          <nav className="hidden md:flex items-center gap-6">
+          <nav className="hidden items-center gap-6 md:flex">
             <HoverCard openDelay={0} closeDelay={150}>
               <HoverCardTrigger asChild>
-                <button className="text-xs font-medium text-muted-foreground hover:text-foreground transition-colors cursor-pointer flex items-center gap-1 focus:outline-none">
+                <button className="text-muted-foreground hover:text-foreground flex cursor-pointer items-center gap-1 text-xs font-medium transition-colors focus:outline-none">
                   Content
                   <ChevronDown className="h-3 w-3 opacity-60" />
                 </button>
               </HoverCardTrigger>
               <HoverCardContent
                 align="start"
-                className="dark w-48 p-2 rounded-2xl border border-border bg-card shadow-xl z-50"
+                className="dark border-border bg-card z-50 w-48 rounded-2xl border p-2 shadow-xl"
               >
                 <SlidingHoverList
                   items={[
@@ -51,7 +51,7 @@ export function Navbar({ onContactClick }: NavbarProps) {
               <a
                 key={item}
                 href={item === "Services" ? "#services" : `#${item.toLowerCase()}`}
-                className="text-xs font-medium text-muted-foreground hover:text-foreground transition-colors"
+                className="text-muted-foreground hover:text-foreground text-xs font-medium transition-colors"
               >
                 {item}
               </a>
@@ -69,7 +69,7 @@ export function Navbar({ onContactClick }: NavbarProps) {
                 onContactClick()
               }
             }}
-            className="hidden sm:inline-flex items-center justify-center bg-primary text-primary-foreground hover:opacity-90 active:scale-95 text-xs font-medium px-4 py-2 rounded-full transition-all"
+            className="bg-primary text-primary-foreground hidden items-center justify-center rounded-full px-4 py-2 text-xs font-medium transition-all hover:opacity-90 active:scale-95 sm:inline-flex"
           >
             Start a Project
           </a>
@@ -79,7 +79,7 @@ export function Navbar({ onContactClick }: NavbarProps) {
               <Button
                 variant="ghost"
                 size="icon"
-                className="md:hidden rounded-lg w-10 h-10 border border-border text-foreground"
+                className="border-border text-foreground h-10 w-10 rounded-lg border md:hidden"
                 aria-label="Toggle menu"
               >
                 <Menu className="h-5 w-5" />
@@ -87,12 +87,12 @@ export function Navbar({ onContactClick }: NavbarProps) {
             </SheetTrigger>
             <SheetContent
               side="right"
-              className="dark bg-background/98 border-border p-6 flex flex-col gap-4 overflow-y-auto"
+              className="dark bg-background/98 border-border flex flex-col gap-4 overflow-y-auto p-6"
             >
               <SheetTitle className="sr-only">Navigation Drawer</SheetTitle>
 
-              <div className="flex flex-col gap-1 border-b border-border pb-4 mt-8">
-                <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest px-2 py-1">
+              <div className="border-border mt-8 flex flex-col gap-1 border-b pb-4">
+                <span className="text-muted-foreground px-2 py-1 text-[10px] font-bold tracking-widest uppercase">
                   Content
                 </span>
                 {[
@@ -106,7 +106,7 @@ export function Navbar({ onContactClick }: NavbarProps) {
                     key={subItem.label}
                     href={subItem.href}
                     onClick={() => setIsOpen(false)}
-                    className="font-serif text-xl py-2 pl-4 text-foreground capitalize hover:pl-6 transition-all"
+                    className="text-foreground py-2 pl-4 font-serif text-xl capitalize transition-all hover:pl-6"
                   >
                     {subItem.label}
                   </a>
@@ -118,7 +118,7 @@ export function Navbar({ onContactClick }: NavbarProps) {
                   key={item}
                   href={item === "services" ? "#services" : `#${item}`}
                   onClick={() => setIsOpen(false)}
-                  className="font-serif text-2xl py-3 border-b border-border text-foreground capitalize hover:pl-2 transition-all"
+                  className="border-border text-foreground border-b py-3 font-serif text-2xl capitalize transition-all hover:pl-2"
                 >
                   {item}
                 </a>
@@ -133,7 +133,7 @@ export function Navbar({ onContactClick }: NavbarProps) {
                       onContactClick()
                     }
                   }}
-                  className="w-full text-center bg-primary text-primary-foreground py-3 rounded-xl font-medium text-sm hover:opacity-90 transition-all"
+                  className="bg-primary text-primary-foreground w-full rounded-xl py-3 text-center text-sm font-medium transition-all hover:opacity-90"
                 >
                   Start a Project
                 </a>

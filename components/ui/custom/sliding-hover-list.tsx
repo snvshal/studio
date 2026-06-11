@@ -90,7 +90,7 @@ export function SlidingHoverList({
       ref={containerRef}
       className={cn(
         "relative flex",
-        orientation === "vertical" ? "flex-col gap-0.5" : "flex-row gap-2 items-center",
+        orientation === "vertical" ? "flex-col gap-0.5" : "flex-row items-center gap-2",
         className
       )}
       onMouseLeave={() => setHoveredIndex(null)}
@@ -99,7 +99,7 @@ export function SlidingHoverList({
       {rect && (
         <div
           className={cn(
-            "absolute bg-muted rounded-lg transition-all duration-200 ease-out pointer-events-none z-0",
+            "bg-muted pointer-events-none absolute z-0 rounded-lg transition-all duration-200 ease-out",
             highlightClassName
           )}
           style={{
