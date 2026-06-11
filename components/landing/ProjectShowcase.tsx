@@ -17,51 +17,6 @@ interface ProjectItem {
   emoji: string
 }
 
-function getSkillIconUrl(tech: string): string | null {
-  const mapping: { [key: string]: string } = {
-    React: "react",
-    "Next.js": "nextjs",
-    Vue: "vue",
-    SvelteKit: "svelte",
-    TypeScript: "ts",
-    Tailwind: "tailwind",
-    Flutter: "flutter",
-    "React Native": "react",
-    Swift: "swift",
-    Kotlin: "kotlin",
-    Expo: "expo",
-    "Node.js": "nodejs",
-    FastAPI: "fastapi",
-    Django: "django",
-    Go: "go",
-    Rust: "rust",
-    tRPC: "trpc",
-    OpenAI: "openai",
-    PostgreSQL: "postgres",
-    MongoDB: "mongodb",
-    Redis: "redis",
-    Supabase: "supabase",
-    AWS: "aws",
-    GCP: "gcp",
-    Vercel: "vercel",
-    Docker: "docker",
-    Kubernetes: "kubernetes",
-    Terraform: "terraform",
-    Tauri: "tauri",
-    Electron: "electron",
-    "GitHub Actions": "githubactions",
-    Jest: "jest",
-    Playwright: "playwright",
-    Sentry: "sentry",
-    "D3.js": "d3",
-    Firebase: "firebase",
-    Python: "python",
-  }
-
-  const slug = mapping[tech] || mapping[tech.toLowerCase()]
-  return slug ? `/icons/${slug}.svg` : null
-}
-
 export function ProjectShowcase() {
   const projects: ProjectItem[] = [
     {
@@ -202,17 +157,9 @@ export function ProjectShowcase() {
                     <Badge
                       key={tech}
                       variant="outline"
-                      className="text-muted-foreground border-border flex items-center gap-1 rounded-md bg-transparent px-2 py-0.5 text-[10px] font-medium shadow-none ring-0"
+                      className="text-muted-foreground border-border rounded-md bg-transparent px-2 py-0.5 text-[10px] font-medium shadow-none ring-0"
                     >
-                      {getSkillIconUrl(tech) && (
-                        <img
-                          src={getSkillIconUrl(tech) || ""}
-                          alt={tech}
-                          className="h-2.5 w-2.5 object-contain"
-                          loading="lazy"
-                        />
-                      )}
-                      <span>{tech}</span>
+                      {tech}
                     </Badge>
                   ))}
                 </div>
