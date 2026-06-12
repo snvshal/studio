@@ -1,7 +1,6 @@
 "use client"
 
-/* eslint-disable @next/next/no-img-element */
-
+import Image from "next/image"
 import { Card } from "@/components/ui/card"
 
 interface StackCategory {
@@ -112,7 +111,7 @@ export function Stack() {
             Right tool, <br />
             <span className="text-muted-foreground font-normal italic">right job.</span>
           </h2>
-          <p className="text-muted-foreground max-w-lg text-base leading-relaxed font-light">
+          <p className="text-muted-foreground max-w-lg text-base leading-relaxed font-light text-pretty">
             We choose the best stack for your use case, not the trendiest one.
           </p>
         </div>
@@ -122,7 +121,7 @@ export function Stack() {
           {categories.map((cat) => (
             <Card
               key={cat.title}
-              className="group bg-card hover:bg-accent/40 flex min-h-[300px] flex-col rounded-none border-none p-8 shadow-none ring-0 transition-all duration-300"
+              className="group bg-card hover:bg-accent/40 flex min-h-[300px] flex-col rounded-none border-none p-8 shadow-none ring-0 transition-all duration-300 max-sm:px-6"
             >
               <div className="mb-6 flex items-center gap-2">
                 <span className={`h-1.5 w-1.5 rounded-full ${cat.dotColor}`} />
@@ -136,11 +135,12 @@ export function Stack() {
                   <div key={item} className="flex flex-col items-center gap-1.5" title={item}>
                     <div className="flex h-11 w-11 items-center justify-center overflow-hidden rounded-xl transition-all duration-300 hover:scale-110">
                       {getSkillIconUrl(item) ? (
-                        <img
+                        <Image
                           src={getSkillIconUrl(item) || ""}
                           alt={item}
+                          width={44}
+                          height={44}
                           className="h-full w-full object-cover"
-                          loading="lazy"
                         />
                       ) : (
                         <div className="border-border/50 bg-muted/40 flex h-full w-full items-center justify-center rounded-xl border">

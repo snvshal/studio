@@ -63,7 +63,7 @@ export function ContactForm() {
                 Have a project <br />
                 in <span className="text-muted-foreground/80 italic">mind?</span>
               </h2>
-              <p className="text-muted-foreground mb-12 max-w-md text-base leading-relaxed font-light">
+              <p className="text-muted-foreground mb-12 max-w-md text-base leading-relaxed font-light text-pretty">
                 Whether you need a full product built from scratch or a specialist team to extend
                 yours — we&apos;d love to hear about it.
               </p>
@@ -80,14 +80,14 @@ export function ContactForm() {
           </div>
 
           {/* Right Column (Form) */}
-          <div className="bg-card border-border rounded-2xl border p-8 backdrop-blur-md md:p-12">
+          <div className="bg-card border-border rounded-2xl border p-8 backdrop-blur-md max-sm:px-6 md:p-12">
             {status === "success" ? (
               <div className="animate-fade-in flex flex-col items-center justify-center py-12 text-center">
                 <CheckCircle2 className="mb-6 h-12 w-12 animate-bounce text-emerald-400" />
                 <h3 className="text-foreground mb-3 font-serif text-3xl font-normal">
                   Message Received!
                 </h3>
-                <p className="text-muted-foreground mb-8 max-w-sm text-sm font-light">
+                <p className="text-muted-foreground mb-8 max-w-sm text-sm font-light text-pretty">
                   Thank you for reaching out. We will review your project details and get back to
                   you within 24 hours.
                 </p>

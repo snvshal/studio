@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image"
 import { Card } from "@/components/ui/card"
 
 interface TestimonialItem {
@@ -72,7 +73,7 @@ export function Testimonials() {
           {testimonials.map((testi, idx) => (
             <Card
               key={idx}
-              className="group bg-card hover:bg-accent/40 flex min-h-[300px] flex-col justify-between rounded-none border-none p-8 shadow-none ring-0 transition-all duration-300 md:p-12"
+              className="group bg-card hover:bg-accent/40 flex min-h-[300px] flex-col justify-between rounded-none border-none p-8 shadow-none ring-0 transition-all duration-300 max-sm:px-6 md:p-12"
             >
               <div>
                 <div
@@ -81,14 +82,20 @@ export function Testimonials() {
                 >
                   {"★".repeat(testi.stars)}
                 </div>
-                <p className="text-foreground mb-8 font-serif text-lg leading-relaxed font-normal italic md:text-xl">
+                <p className="text-foreground mb-8 font-serif text-lg leading-relaxed font-normal text-pretty italic md:text-xl">
                   &ldquo;{testi.quote}&rdquo;
                 </p>
               </div>
 
               <footer className="border-border flex items-center gap-4 border-t pt-6">
-                <div className="bg-muted border-border text-muted-foreground group-hover:bg-background flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border font-serif text-xs italic transition-colors">
-                  {testi.initials}
+                <div className="border-border bg-muted flex h-10 w-10 flex-shrink-0 items-center justify-center overflow-hidden rounded-full border">
+                  <Image
+                    src="/profile.png"
+                    alt={testi.name}
+                    width={40}
+                    height={40}
+                    className="h-full w-full object-cover"
+                  />
                 </div>
                 <div>
                   <cite className="text-foreground block text-sm font-semibold not-italic">

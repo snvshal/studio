@@ -1,8 +1,7 @@
 "use client"
 
-/* eslint-disable @next/next/no-img-element */
-
 import { ArrowUpRight } from "lucide-react"
+import Image from "next/image"
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -119,7 +118,7 @@ export function ProjectShowcase() {
           {projects.map((project) => (
             <Card
               key={project.num}
-              className="group bg-card relative flex min-h-[500px] flex-col justify-between border-none p-8 shadow-none ring-0 transition-all duration-300 md:p-12"
+              className="group bg-card relative flex min-h-[500px] flex-col justify-between rounded-none border-none p-8 shadow-none ring-0 transition-all duration-300 max-sm:px-6 md:p-12"
             >
               {/* Subtle hover gradient */}
               <div className="bg-accent/40 pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
@@ -136,17 +135,19 @@ export function ProjectShowcase() {
 
                 {/* Animated project mockup visual */}
                 <div className="border-border bg-muted/60 group-hover:border-border relative mb-8 flex h-64 items-center justify-center overflow-hidden rounded-xl border shadow-sm transition-colors duration-300">
-                  <img
+                  <Image
                     src="/project.png"
                     alt={`${project.title} mockup`}
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
 
                 <h3 className="text-foreground mb-3 font-serif text-3xl leading-[1.25] font-normal">
                   {project.title}
                 </h3>
-                <p className="text-muted-foreground mb-6 text-sm leading-relaxed font-light">
+                <p className="text-muted-foreground mb-6 text-sm leading-relaxed font-light text-pretty">
                   {project.description}
                 </p>
               </div>

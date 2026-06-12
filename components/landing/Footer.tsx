@@ -11,7 +11,7 @@ export function Footer() {
           Codeware <span className="text-muted-foreground font-normal italic">Studio</span>
         </a>
 
-        <p className="text-muted-foreground text-xs font-light">
+        <p className="text-muted-foreground text-xs font-light text-pretty">
           © {new Date().getFullYear()} Codeware Studio. Crafted with care.
         </p>
       </div>

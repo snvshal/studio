@@ -130,7 +130,7 @@ export function Services() {
               <span className="text-muted-foreground font-normal italic">One studio.</span>
             </h2>
           </div>
-          <p className="text-muted-foreground max-w-lg text-base leading-relaxed font-light lg:mb-1">
+          <p className="text-muted-foreground max-w-lg text-base leading-relaxed font-light text-pretty lg:mb-1">
             We don&apos;t pick a lane — we build the right software for your use case, whether it
             runs in a browser, on a phone, or in a terminal.
           </p>
@@ -168,7 +168,7 @@ export function Services() {
                 <h3 className="text-foreground mb-2.5 font-serif text-xl leading-[1.25] font-normal">
                   {svc.title}
                 </h3>
-                <p className="text-muted-foreground mb-6 text-xs leading-relaxed font-light">
+                <p className="text-muted-foreground mb-6 text-xs leading-relaxed font-light text-pretty">
                   {svc.description}
                 </p>
               </div>

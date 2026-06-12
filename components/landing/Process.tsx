@@ -73,7 +73,7 @@ export function Process() {
           >
             How we work.
           </h2>
-          <p className="text-muted-foreground max-w-lg text-base leading-relaxed font-light">
+          <p className="text-muted-foreground max-w-lg text-base leading-relaxed font-light text-pretty">
             Lean, transparent, and predictable. We keep you in the loop at every step.
           </p>
         </div>
@@ -83,7 +83,7 @@ export function Process() {
           {steps.map((step) => (
             <Card
               key={step.num}
-              className="group hover:bg-accent/40 border-border relative flex min-h-[280px] flex-col justify-between rounded-none border-b border-none bg-transparent p-8 shadow-none ring-0 transition-all duration-300 last:border-r-0 last:border-b-0 md:border-r md:border-b-0"
+              className="group hover:bg-accent/40 border-border relative flex min-h-[280px] flex-col justify-between rounded-none border-b border-none bg-transparent p-8 shadow-none ring-0 transition-all duration-300 last:border-r-0 last:border-b-0 max-sm:px-6 md:border-r md:border-b-0"
             >
               <div>
                 <span className="text-muted-foreground/20 group-hover:text-muted-foreground/45 mb-8 block font-serif text-4xl font-normal tracking-tight italic transition-colors duration-300 lg:text-5xl">
@@ -92,7 +92,7 @@ export function Process() {
                 <h3 className="text-foreground mb-3 text-base font-semibold tracking-tight">
                   {step.title}
                 </h3>
-                <p className="text-muted-foreground mb-6 text-xs leading-relaxed font-light">
+                <p className="text-muted-foreground mb-6 text-xs leading-relaxed font-light text-pretty">
                   {step.description}
                 </p>
               </div>

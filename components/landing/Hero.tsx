@@ -102,7 +102,7 @@ export function Hero() {
 
           {/* Hero Right Content */}
           <div className="flex flex-col items-start lg:pb-3">
-            <p className="text-muted-foreground mb-8 max-w-lg text-base leading-relaxed font-light md:text-lg">
+            <p className="text-muted-foreground mb-8 max-w-lg text-base leading-relaxed font-light text-pretty md:text-lg">
               We build software tailored to your unique business needs, from web and mobile apps to
               desktop applications and AI agents.
             </p>
