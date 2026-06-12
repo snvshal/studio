@@ -56,13 +56,16 @@ export function Hero() {
     >
       {/* Premium Background Visuals */}
       <div className="pointer-events-none absolute inset-0 -z-10">
-        {/* Background Image Container */}
-        <div
-          className="pointer-events-none absolute inset-0 bg-cover bg-center opacity-40 mix-blend-overlay"
-          style={{
-            backgroundImage: "url('/hero.gif')",
-          }}
-        />
+        {/* Background Video Container */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-40 mix-blend-overlay"
+        >
+          <source src="/hero.mp4" type="video/mp4" />
+        </video>
 
         {/* Subtle grid lines */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,0,0,0.03)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.03)_1px,transparent_1px)] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] bg-[size:40px_40px] dark:bg-[linear-gradient(to_right,rgba(255,255,255,0.015)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.015)_1px,transparent_1px)]" />
