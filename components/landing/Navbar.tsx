@@ -137,7 +137,7 @@ export function Navbar({ onContactClick }: NavbarProps) {
       {/* Custom Full-Screen Mobile Overlay Menu (Moved outside header for true viewport scaling) */}
       <div
         className={cn(
-          "bg-background/95 fixed inset-0 z-40 flex h-screen w-screen flex-col items-start justify-between px-8 pt-32 pb-12 backdrop-blur-2xl transition-all duration-300 ease-out md:hidden",
+          "bg-background/95 fixed inset-0 z-40 flex h-dvh w-screen flex-col items-start justify-between px-8 pt-32 pb-12 backdrop-blur-2xl transition-all duration-300 ease-out md:hidden",
           isOpen
             ? "pointer-events-auto scale-100 opacity-100"
             : "pointer-events-none scale-95 opacity-0"
