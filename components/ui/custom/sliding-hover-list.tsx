@@ -99,7 +99,7 @@ export function SlidingHoverList({
       {rect && (
         <div
           className={cn(
-            "bg-muted pointer-events-none absolute z-0 rounded-lg transition-all duration-200 ease-out",
+            "bg-foreground/[0.05] pointer-events-none absolute z-0 rounded-lg transition-all duration-200 ease-out dark:bg-white/[0.08]",
             highlightClassName
           )}
           style={{
@@ -120,9 +120,9 @@ export function SlidingHoverList({
             itemRefs.current[i] = el
           },
           className: cn(
-            "text-xs font-medium rounded-lg relative z-10 transition-colors duration-200 focus:outline-none select-none",
+            "text-sm font-medium rounded-lg relative z-10 transition-colors duration-200 focus:outline-none select-none",
             orientation === "vertical"
-              ? "h-8 flex items-center px-3 w-full"
+              ? "h-9 flex items-center px-3 w-full"
               : "px-3 py-1.5 flex items-center justify-center",
             hoveredIndex === i ? "text-foreground" : "text-muted-foreground",
             item.className,
@@ -137,7 +137,7 @@ export function SlidingHoverList({
 
         if (isLink) {
           const href = item.href || "#"
-          if (href.startsWith("#") || href.startsWith("http")) {
+          if (href.startsWith("http") || href.startsWith("mailto:")) {
             return (
               <a key={i} href={href} {...commonProps}>
                 {item.label}

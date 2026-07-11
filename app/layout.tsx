@@ -23,9 +23,9 @@ const instrumentSerif = Instrument_Serif({
 })
 
 export const metadata: Metadata = {
-  title: "Codeware Studio — Software Development",
+  title: "Apex — Software Development",
   description:
-    "Codeware Studio — full-spectrum software development for web, mobile, desktop, AI agents, and more.",
+    "Apex — full-spectrum software development for web, mobile, desktop, AI agents, and more.",
 }
 
 export default function RootLayout({

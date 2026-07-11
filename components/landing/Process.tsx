@@ -2,6 +2,8 @@
 
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { Section } from "@/components/ui/custom/section"
+import { cn } from "@/lib/utils"
 
 interface StepItem {
   num: string
@@ -56,59 +58,56 @@ export function Process() {
   ]
 
   return (
-    <section
-      id="process"
-      className="bg-muted/50 py-24 transition-colors duration-300"
-      aria-labelledby="process-heading"
-    >
-      <div className="mx-auto max-w-7xl px-6 md:px-12">
-        <div className="mb-16 max-w-xl">
-          <div className="text-muted-foreground mb-4 inline-flex items-center gap-3 text-xs font-semibold tracking-widest uppercase">
-            <span className="bg-border h-px w-6" />
-            Process
-          </div>
-          <h2
-            id="process-heading"
-            className="text-foreground mb-4 font-serif text-4xl leading-[1.05] font-normal md:text-5xl lg:text-6xl"
-          >
-            How we work.
-          </h2>
-          <p className="text-muted-foreground max-w-lg text-base leading-relaxed font-light text-pretty">
-            Lean, transparent, and predictable. We keep you in the loop at every step.
-          </p>
+    <Section id="process" background="muted">
+      <div className="mb-16 max-w-xl">
+        <div className="text-muted-foreground mb-4 inline-flex items-center gap-3 text-xs font-semibold tracking-widest uppercase">
+          <span className="bg-border h-px w-6" />
+          Process
         </div>
-
-        {/* Process Steps Grid */}
-        <div className="border-border bg-card grid grid-cols-1 overflow-hidden rounded-2xl border md:grid-cols-3 lg:grid-cols-5">
-          {steps.map((step) => (
-            <Card
-              key={step.num}
-              className="group hover:bg-accent/40 border-border relative flex min-h-[280px] flex-col justify-between rounded-none border-b border-none bg-transparent p-8 shadow-none ring-0 transition-all duration-300 last:border-r-0 last:border-b-0 max-sm:px-6 md:border-r md:border-b-0"
-            >
-              <div>
-                <span className="text-muted-foreground/20 group-hover:text-muted-foreground/45 mb-8 block font-serif text-4xl font-normal tracking-tight italic transition-colors duration-300 lg:text-5xl">
-                  {step.num}
-                </span>
-                <h3 className="text-foreground mb-3 text-base font-semibold tracking-tight">
-                  {step.title}
-                </h3>
-                <p className="text-muted-foreground mb-6 text-xs leading-relaxed font-light text-pretty">
-                  {step.description}
-                </p>
-              </div>
-
-              <div>
-                <Badge
-                  variant="secondary"
-                  className={`inline-block rounded-full border px-2.5 py-1 text-[9px] font-bold tracking-widest uppercase shadow-none ring-0 ${step.colorClass}`}
-                >
-                  {step.duration}
-                </Badge>
-              </div>
-            </Card>
-          ))}
-        </div>
+        <h2
+          id="process-heading"
+          className="text-foreground mb-4 font-serif text-4xl leading-[1.05] font-normal md:text-5xl lg:text-6xl"
+        >
+          How we work.
+        </h2>
+        <p className="text-muted-foreground max-w-lg text-base leading-relaxed font-light text-pretty">
+          Lean, transparent, and predictable. We keep you in the loop at every step.
+        </p>
       </div>
-    </section>
+
+      {/* Process Steps Grid */}
+      <div className="bg-border border-border grid grid-cols-1 gap-px overflow-hidden rounded-2xl border md:grid-cols-2 lg:grid-cols-5">
+        {steps.map((step, index) => (
+          <Card
+            key={step.num}
+            className={cn(
+              "group hover:bg-accent/40 bg-card relative flex min-h-[280px] flex-col justify-between rounded-none border-none p-8 shadow-none ring-0 transition-all duration-300 max-sm:px-6",
+              index === 4 && "md:col-span-2 lg:col-span-1"
+            )}
+          >
+            <div>
+              <span className="text-muted-foreground/20 group-hover:text-muted-foreground/45 mb-8 block font-serif text-4xl font-normal tracking-tight italic transition-colors duration-300 lg:text-5xl">
+                {step.num}
+              </span>
+              <h3 className="text-foreground mb-3 text-base font-semibold tracking-tight">
+                {step.title}
+              </h3>
+              <p className="text-muted-foreground mb-6 text-xs leading-relaxed font-light text-pretty">
+                {step.description}
+              </p>
+            </div>
+
+            <div>
+              <Badge
+                variant="secondary"
+                className={`inline-block rounded-full border px-2.5 py-1 text-[9px] font-bold tracking-widest uppercase shadow-none ring-0 ${step.colorClass}`}
+              >
+                {step.duration}
+              </Badge>
+            </div>
+          </Card>
+        ))}
+      </div>
+    </Section>
   )
 }

@@ -5,13 +5,12 @@ import { Services } from "@/components/landing/Services"
 import { ProjectShowcase } from "@/components/landing/ProjectShowcase"
 import { Process } from "@/components/landing/Process"
 import { Stack } from "@/components/landing/Stack"
-import { Testimonials } from "@/components/landing/Testimonials"
 import { ContactForm } from "@/components/landing/ContactForm"
 import { Footer } from "@/components/landing/Footer"
 
 export default function Home() {
   return (
-    <div className="dark bg-background text-foreground flex min-h-screen flex-col transition-colors duration-300">
+    <div className="bg-background text-foreground flex min-h-screen flex-col transition-colors duration-300">
       {/* Skip to main content link for accessibility */}
       <a
         href="#main-content"
@@ -42,9 +41,6 @@ export default function Home() {
 
         {/* Filter-friendly/Clean Tech Stack Categorization */}
         <Stack />
-
-        {/* Partner Reviews & Testimonials */}
-        <Testimonials />
 
         {/* Interactive Contact Form */}
         <ContactForm />
