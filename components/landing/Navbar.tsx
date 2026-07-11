@@ -48,7 +48,7 @@ export function Navbar({ onContactClick }: NavbarProps) {
         )}
       >
         <div className="flex items-center gap-10">
-          <Link href="/" className="text-foreground font-serif text-2xl font-medium tracking-tight">
+          <Link href="/" className="text-foreground font-serif text-2xl font-bold tracking-tight">
             Apex
           </Link>
 
@@ -91,18 +91,23 @@ export function Navbar({ onContactClick }: NavbarProps) {
 
         {/* Right side: CTA, Mobile Menu Sheet */}
         <div className="flex items-center gap-2">
-          <Link
-            href="#contact"
-            onClick={(e) => {
-              if (onContactClick) {
-                e.preventDefault()
-                onContactClick()
-              }
-            }}
-            className="bg-primary text-primary-foreground hidden h-9 items-center justify-center rounded-full px-4 text-xs font-medium transition-all hover:opacity-90 active:scale-95 sm:inline-flex"
+          <Button
+            asChild
+            size="lg"
+            className="hidden rounded-full text-xs font-medium sm:inline-flex"
           >
-            Start a Project
-          </Link>
+            <Link
+              href="#contact"
+              onClick={(e) => {
+                if (onContactClick) {
+                  e.preventDefault()
+                  onContactClick()
+                }
+              }}
+            >
+              Start a Project
+            </Link>
+          </Button>
 
           {/* Mobile Menu Button */}
           <Button
@@ -133,54 +138,61 @@ export function Navbar({ onContactClick }: NavbarProps) {
       {/* Custom Full-Screen Mobile Overlay Menu (Moved outside header for true viewport scaling) */}
       <div
         className={cn(
-          "bg-background/95 fixed inset-0 z-40 flex h-screen w-screen flex-col items-start justify-start px-8 pt-32 pb-12 backdrop-blur-2xl transition-all duration-300 ease-out md:hidden",
+          "bg-background/95 fixed inset-0 z-40 flex h-screen w-screen flex-col items-start justify-between px-8 pt-32 pb-12 backdrop-blur-2xl transition-all duration-300 ease-out md:hidden",
           isOpen
             ? "pointer-events-auto scale-100 opacity-100"
             : "pointer-events-none scale-95 opacity-0"
         )}
       >
-        <nav className="flex flex-col items-start gap-8">
-          {[
-            { label: "Services", href: "#services" },
-            { label: "Work", href: "#work" },
-            { label: "Process", href: "#process" },
-            { label: "Stack", href: "#stack" },
-            { label: "Contact", href: "#contact" },
-            { label: "Pricing", href: "#pricing" },
-            { label: "About", href: "#about" },
-          ].map((item) => (
+        {/* Scrollable links list wrapper */}
+        <div className="min-h-0 w-full flex-1 overflow-y-auto pr-2">
+          <nav className="flex flex-col items-start gap-8 pb-4">
+            {[
+              { label: "Services", href: "#services" },
+              { label: "Work", href: "#work" },
+              { label: "Process", href: "#process" },
+              { label: "Stack", href: "#stack" },
+              { label: "Contact", href: "#contact" },
+              { label: "Pricing", href: "#pricing" },
+              { label: "About", href: "#about" },
+            ].map((item) => (
+              <Link
+                key={item.label}
+                href={item.href}
+                onClick={(e) => {
+                  setIsOpen(false)
+                  if (item.label === "Contact" && onContactClick) {
+                    e.preventDefault()
+                    onContactClick()
+                  }
+                }}
+                className="text-foreground hover:text-muted-foreground font-serif text-3xl font-light transition-all duration-300 hover:pl-2 active:scale-95"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+        </div>
+
+        {/* Start a Project Button (Bottom CTA - pinned to bottom, always visible, shrink-0) */}
+        <div className="w-full shrink-0 pt-6 sm:hidden">
+          <Button
+            asChild
+            className="flex h-12 w-full rounded-full text-sm font-medium shadow-sm transition-all active:scale-95"
+          >
             <Link
-              key={item.label}
-              href={item.href}
+              href="#contact"
               onClick={(e) => {
                 setIsOpen(false)
-                if (item.label === "Contact" && onContactClick) {
+                if (onContactClick) {
                   e.preventDefault()
                   onContactClick()
                 }
               }}
-              className="text-foreground hover:text-muted-foreground font-serif text-4xl font-light transition-all duration-300 hover:pl-2 active:scale-95"
             >
-              {item.label}
+              Start a Project
             </Link>
-          ))}
-        </nav>
-
-        {/* Start a Project Button (Bottom CTA for mobile screens < sm) */}
-        <div className="mt-auto w-full sm:hidden">
-          <Link
-            href="#contact"
-            onClick={(e) => {
-              setIsOpen(false)
-              if (onContactClick) {
-                e.preventDefault()
-                onContactClick()
-              }
-            }}
-            className="bg-primary text-primary-foreground flex h-9 w-full items-center justify-center rounded-full text-xs font-medium shadow-sm transition-all hover:opacity-90 active:scale-95"
-          >
-            Start a Project
-          </Link>
+          </Button>
         </div>
       </div>
     </>

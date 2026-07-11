@@ -68,7 +68,7 @@ export function ProjectShowcase() {
       num: "06",
       type: "CLI Tool",
       typeColor: "text-amber-400 bg-amber-500/10",
-      title: "deploykit",
+      title: "Deploykit",
       description:
         "Open-source CLI automating multi-environment deployments, secret injection, and rollbacks in one command.",
       image: "/projects/deploykit.jpg",

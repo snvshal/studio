@@ -340,7 +340,7 @@ export function Hero() {
             </div>
 
             {/* Stats Display */}
-            <div className="border-border grid w-full grid-cols-3 gap-6 border-t pt-8">
+            <div className="border-border grid w-full grid-cols-3 gap-6 border-t border-dashed pt-8">
               <div>
                 <div className="text-foreground font-serif text-3xl tabular-nums md:text-4xl">
                   120+

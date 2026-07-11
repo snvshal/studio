@@ -8,7 +8,7 @@ export function Footer() {
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 md:flex-row">
         <Link
           href="/"
-          className="text-foreground font-serif text-lg font-medium tracking-tight hover:opacity-90"
+          className="text-foreground font-serif text-lg font-bold tracking-tight hover:opacity-90"
         >
           Apex
         </Link>

@@ -12,7 +12,6 @@ import {
   ArrowUpRight,
 } from "lucide-react"
 import { Card } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
 import { Section } from "@/components/ui/custom/section"
 import {
   WebVisual,
@@ -29,7 +28,6 @@ interface ServiceItem {
   num: string
   title: string
   description: string
-  tags: string[]
   icon: React.ReactNode
   visual: React.ReactNode
 }
@@ -41,7 +39,6 @@ export function Services() {
       title: "Web Applications",
       description:
         "Fast, accessible, scalable web apps — from SaaS dashboards to marketing sites and complex platforms.",
-      tags: ["React", "Next.js", "SvelteKit"],
       icon: <Globe className="h-4 w-4" />,
       visual: <WebVisual />,
     },
@@ -50,7 +47,6 @@ export function Services() {
       title: "Mobile Applications",
       description:
         "Cross-platform and native iOS & Android apps built for performance and delight.",
-      tags: ["Flutter", "React Native", "Swift"],
       icon: <Smartphone className="h-4 w-4" />,
       visual: <MobileVisual />,
     },
@@ -59,7 +55,6 @@ export function Services() {
       title: "Desktop Software",
       description:
         "Windows, macOS, and Linux desktop apps — from productivity tools to heavy data processing utilities.",
-      tags: ["Tauri", "Electron", "Qt"],
       icon: <Monitor className="h-4 w-4" />,
       visual: <DesktopVisual />,
     },
@@ -68,7 +63,6 @@ export function Services() {
       title: "CLI Tools",
       description:
         "Developer-first command-line tools, automation scripts, and build pipeline integrations.",
-      tags: ["Go", "Rust", "Node.js"],
       icon: <Terminal className="h-4 w-4" />,
       visual: <CLIVisual />,
     },
@@ -77,7 +71,6 @@ export function Services() {
       title: "AI Agents & LLM Apps",
       description:
         "RAG systems, autonomous agents, multi-modal pipelines, and LLM-powered products that ship.",
-      tags: ["LangChain", "Claude", "MCP"],
       icon: <Cpu className="h-4 w-4" />,
       visual: <AIVisual />,
     },
@@ -86,7 +79,6 @@ export function Services() {
       title: "Browser Extensions",
       description:
         "Chrome, Firefox, and Edge extensions that augment the web with custom superpowers.",
-      tags: ["Manifest V3", "TypeScript"],
       icon: <Puzzle className="h-4 w-4" />,
       visual: <ExtensionVisual />,
     },
@@ -95,7 +87,6 @@ export function Services() {
       title: "APIs & Backends",
       description:
         "Scalable REST and GraphQL APIs, microservices, serverless, and data infrastructure.",
-      tags: ["FastAPI", "tRPC", "Postgres"],
       icon: <Database className="h-4 w-4" />,
       visual: <BackendVisual />,
     },
@@ -104,7 +95,6 @@ export function Services() {
       title: "Plugins & Integrations",
       description:
         "Custom Figma, Shopify, Notion, and Slack plugins — plus complex third-party API integrations.",
-      tags: ["Figma API", "Shopify"],
       icon: <Grid className="h-4 w-4" />,
       visual: <PluginVisual />,
     },
@@ -137,7 +127,7 @@ export function Services() {
         {services.map((svc) => (
           <Card
             key={svc.num}
-            className="group bg-card hover:bg-accent/40 relative flex min-h-[490px] cursor-pointer flex-col justify-between overflow-hidden rounded-none border-none p-6 shadow-none ring-0 transition-all duration-300"
+            className="group bg-card hover:bg-accent/40 relative flex min-h-[400px] cursor-pointer flex-col justify-between overflow-hidden rounded-none border-none p-6 shadow-none ring-0 transition-all duration-300"
           >
             {/* Subtle hover gradient */}
             <div className="to-foreground/[0.02] pointer-events-none absolute inset-0 bg-gradient-to-tr from-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
@@ -170,18 +160,6 @@ export function Services() {
             </div>
 
             <div>
-              <div className="mb-2 flex flex-wrap gap-1.5">
-                {svc.tags.map((tag) => (
-                  <Badge
-                    key={tag}
-                    variant="secondary"
-                    className="text-muted-foreground border-border bg-muted rounded-md border px-2 py-0.5 text-[9px] font-semibold tracking-wider uppercase shadow-none ring-0"
-                  >
-                    {tag}
-                  </Badge>
-                ))}
-              </div>
-
               {/* Arrow indicator */}
               <div className="border-border text-muted-foreground group-hover:border-foreground group-hover:text-foreground absolute right-6 bottom-6 flex h-8 w-8 translate-y-2 items-center justify-center rounded-full border opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
                 <ArrowUpRight className="h-3.5 w-3.5" />
