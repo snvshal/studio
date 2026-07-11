@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import { ChevronDown } from "lucide-react"
 import Link from "next/link"
+import { Logo } from "@/components/ui/custom/Logo"
 import { Button } from "@/components/ui/button"
 import { HoverCard, HoverCardTrigger, HoverCardContent } from "@/components/ui/hover-card"
 import { SlidingHoverList } from "@/components/ui/custom/sliding-hover-list"
@@ -48,9 +49,7 @@ export function Navbar({ onContactClick }: NavbarProps) {
         )}
       >
         <div className="flex items-center gap-10">
-          <Link href="/" className="text-foreground font-serif text-2xl font-bold tracking-tight">
-            Apex
-          </Link>
+          <Logo />
 
           {/* Desktop navigation next to title */}
           <nav className="hidden items-center gap-6 md:flex">

@@ -19,11 +19,11 @@ export function WebVisual() {
         {[40, 55, 45, 60, 50, 75, 65, 80, 70, 95].map((height, i) => (
           <div key={i} className="flex h-full flex-1 flex-col justify-end">
             <div
-              style={{ height: `${height}%` }}
-              className={`w-full rounded-t-sm transition-all duration-500 ${
+              style={{ height: `${height}%`, animationDelay: `${i * 50}ms` }}
+              className={`animate-bar-grow w-full rounded-t-sm ${
                 i === 9
                   ? "bg-gradient-to-t from-emerald-500 to-emerald-400 shadow-[0_0_8px_rgba(16,185,129,0.3)]"
-                  : "border border-emerald-100 bg-emerald-50/60 group-hover:bg-emerald-100/80 dark:border-emerald-950/40 dark:bg-emerald-950/40 dark:group-hover:bg-emerald-900/30"
+                  : "border border-emerald-100 bg-emerald-50/60 dark:border-emerald-950/40 dark:bg-emerald-950/40"
               }`}
             />
           </div>
@@ -56,18 +56,27 @@ export function MobileVisual() {
               {day}
             </span>
             <div
+              style={i === 6 ? { animationDelay: "500ms" } : undefined}
               className={`flex h-6 w-6 items-center justify-center rounded-full text-[10px] font-bold transition-all duration-500 ${
                 i < 6
                   ? "border border-emerald-500/20 bg-emerald-500/10 text-emerald-600 dark:border-emerald-500/30 dark:bg-emerald-500/20 dark:text-emerald-400"
-                  : "border border-violet-200 bg-violet-50 text-violet-400 group-hover:border-emerald-500/30 group-hover:bg-emerald-500/20 group-hover:text-emerald-400 group-hover:text-emerald-600 dark:border-violet-900/40 dark:bg-violet-950/50 dark:text-violet-400 dark:group-hover:text-emerald-400"
+                  : "animate-reveal-success border border-violet-200 bg-violet-50 text-violet-400 dark:border-violet-900/40 dark:bg-violet-950/50 dark:text-violet-400"
               }`}
             >
               {i < 6 ? (
                 "✓"
               ) : (
                 <>
-                  <span className="text-violet-400/60 group-hover:hidden">•</span>
-                  <span className="hidden text-emerald-600 group-hover:inline dark:text-emerald-400">
+                  <span
+                    className="animate-fade-out text-violet-400/60"
+                    style={{ animationDelay: "500ms" }}
+                  >
+                    •
+                  </span>
+                  <span
+                    className="animate-fade-in absolute text-emerald-600 opacity-0 dark:text-emerald-400"
+                    style={{ animationDelay: "500ms" }}
+                  >
                     ✓
                   </span>
                 </>
@@ -102,7 +111,10 @@ export function DesktopVisual() {
 
         {/* Animated link line */}
         <div className="absolute right-[30%] left-[30%] h-[1.5px] bg-teal-100 dark:bg-teal-950">
-          <div className="h-full w-1/3 animate-pulse bg-gradient-to-r from-teal-500 to-emerald-500 transition-all duration-1000 group-hover:w-full" />
+          <div
+            style={{ animationDelay: "200ms" }}
+            className="animate-width-grow h-full bg-gradient-to-r from-teal-500 to-emerald-500"
+          />
         </div>
 
         <div className="bg-card z-10 flex flex-col items-center rounded border border-teal-500/20 p-1.5 font-mono text-[8px] shadow-sm dark:border-teal-900/40">
@@ -128,7 +140,10 @@ export function CLIVisual() {
         </div>
         <div className="text-muted-foreground">[1/3] Uploading bundle (14.2 MB)...</div>
         <div className="text-muted-foreground">[2/3] Injecting production secrets...</div>
-        <div className="mt-1 font-semibold text-emerald-600 transition-all duration-500 group-hover:block dark:text-emerald-400">
+        <div
+          style={{ animationDelay: "700ms" }}
+          className="animate-fade-in-down mt-1 font-semibold text-emerald-600 dark:text-emerald-400"
+        >
           ✔ [3/3] Deployment successful! (2.8s)
         </div>
       </div>
@@ -151,7 +166,10 @@ export function AIVisual() {
         <div className="border-border bg-muted/30 rounded border p-2 dark:bg-neutral-900">
           <span className="text-muted-foreground">&gt;_ Reading nda_final.pdf</span>
           <div className="mt-1 h-1 w-full overflow-hidden rounded-full bg-neutral-200 dark:bg-neutral-800">
-            <div className="h-full w-[85%] bg-rose-500 transition-all duration-1000 group-hover:w-full" />
+            <div
+              style={{ animationDelay: "150ms" }}
+              className="animate-width-grow h-full bg-rose-500"
+            />
           </div>
         </div>
         <div className="border-border/80 bg-muted/10 text-muted-foreground rounded border p-2 leading-normal dark:bg-neutral-900/50">
@@ -223,7 +241,10 @@ export function BackendVisual() {
         <div className="pl-3">
           <span className="text-emerald-600 dark:text-emerald-400">&quot;rows&quot;</span>: [
         </div>
-        <div className="rounded border-l border-emerald-500/30 bg-emerald-500/5 py-0.5 pl-6 text-[8px] transition-transform duration-300 group-hover:translate-x-1 dark:bg-emerald-500/10">
+        <div
+          style={{ animationDelay: "450ms" }}
+          className="animate-fade-in-down rounded border-l border-emerald-500/30 bg-emerald-500/5 py-0.5 pl-6 text-[8px] dark:bg-emerald-500/10"
+        >
           {"{ "} <span className="text-purple-600 dark:text-purple-400">&quot;id&quot;</span>: 1,{" "}
           <span className="text-purple-600 dark:text-purple-400">&quot;name&quot;</span>:{" "}
           <span className="text-amber-600 dark:text-amber-400">&quot;cached&quot;</span> {"}"}
@@ -254,7 +275,10 @@ export function PluginVisual() {
           <span className="text-orange-500">12 / 12</span>
         </div>
         <div className="bg-muted h-1.5 overflow-hidden rounded-full dark:bg-neutral-800">
-          <div className="h-full w-[70%] bg-gradient-to-r from-orange-500 to-amber-400 transition-all duration-1000 group-hover:w-full" />
+          <div
+            style={{ animationDelay: "250ms" }}
+            className="animate-width-grow h-full bg-gradient-to-r from-orange-500 to-amber-400"
+          />
         </div>
       </div>
     </div>
