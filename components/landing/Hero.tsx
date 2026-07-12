@@ -190,8 +190,22 @@ export function Hero() {
     let height = 0
 
     const render = (now: number) => {
-      const currentWidth = canvas.clientWidth || 500
-      const currentHeight = canvas.clientHeight || 500
+      const isMobile = typeof window !== "undefined" && window.innerWidth < 768
+      const maxRes = isMobile ? 280 : 500
+
+      let currentWidth = canvas.clientWidth || 500
+      let currentHeight = canvas.clientHeight || 500
+
+      if (isMobile) {
+        const ratio = currentWidth / currentHeight
+        if (currentWidth > currentHeight) {
+          currentWidth = maxRes
+          currentHeight = Math.round(maxRes / ratio)
+        } else {
+          currentHeight = maxRes
+          currentWidth = Math.round(maxRes * ratio)
+        }
+      }
 
       if (canvas.width !== currentWidth || canvas.height !== currentHeight) {
         width = canvas.width = currentWidth
